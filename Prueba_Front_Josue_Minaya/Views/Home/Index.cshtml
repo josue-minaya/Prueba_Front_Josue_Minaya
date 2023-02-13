@@ -1,0 +1,35 @@
+﻿@model List<Orden>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">Orden</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Total</th>
+      <th scope="col">Asesor</th>
+      <th scope="col"></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var item in Model)
+        {
+        <tr>
+          <td>@item.Id</td>
+          <td>@item.Cliente</td>
+          <td>@item.Total</td>
+          <td>@item.Asesor</td>
+          <td> @Html.ActionLink("Ver", "Detalle", "Home", new { Id = item.Id }, new { @class = "btn btn-info" })</td>
+
+        </tr> 
+      }
+   
+ 
+  </tbody>
+</table>
+
